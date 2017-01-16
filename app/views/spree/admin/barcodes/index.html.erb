@@ -1,0 +1,25 @@
+<%= render 'spree/admin/shared/product_tabs', current: 'Variants' %>
+
+<% admin_breadcrumb(link_to plural_resource_name(Spree::Variant), admin_product_variants_path(@product)) %>
+<% admin_breadcrumb(link_to "#{@variant.sku} - #{@variant.options_text}", edit_admin_product_variant_path(@product,@variant)) %>
+<% admin_breadcrumb(link_to plural_resource_name(Spree::Barcode), admin_product_variant_barcodes_path(@product,@variant)) %>
+
+<% if @barcodes.any? %>
+  <%= render "table" %>
+  <% else %>
+    <div class="col-xs-9 no-objects-found">
+      <%= Spree.t(:no_resource, resource: plural_resource_name(Spree::Barcode)) %>
+      <% if can? :create, Spree::Barcode %>
+        <%= link_to Spree.t(:new_barcode), new_admin_product_variant_barcode_url(@product,@variant) %>
+      <% end %>
+    </div>
+  <% end %>
+
+
+<% if can?(:create, Spree::Barcode) %>
+  <% content_for :page_actions do %>
+      <%= link_to_with_icon 'plus', Spree.t(:new_barcode),
+          new_admin_product_variant_barcode_url(@product,@variant),
+          class: 'button' %>
+  <% end %>
+<% end %>

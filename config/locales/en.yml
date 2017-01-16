@@ -1,0 +1,12 @@
+en:
+  spree:
+    new_barcode: "New barcode"
+    edit_barcode: "Edit barcode"
+    barcodes: "Barcodes"
+    barcode: "Barcode"
+    format: "Format"
+  activerecord:
+    models:
+      spree/barcode:
+        one: "Barcode"
+        other: "Barcodes"

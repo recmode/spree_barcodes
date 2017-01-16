@@ -1,0 +1,5 @@
+  <%= f.field_container :name do %>
+    <%= f.label :code, class: 'required' %>
+    <%= f.text_field :code, :class => 'fullwidth title', :required => true %>
+    <%= f.error_message_on :code %>
+  <% end %>

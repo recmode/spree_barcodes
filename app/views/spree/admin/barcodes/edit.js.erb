@@ -1,0 +1,1 @@
+$("#barcode-<%= @barcode.id %>").html('<%= escape_javascript(render 'spree/admin/barcodes/form', :formats => [:html], :handlers => [:erb]) %>');
